@@ -1,6 +1,11 @@
 ## Huggingface Workspace
 
 This is a simple setup for running ad-hoc experiments with a large selection of models loaded through `transformers` from `Huggingface`.
+The base image is built on top of `nvidia/cuda:12.4.0-devel-ubuntu22.04`:
+- CUDA `V12.4.131`
+- Torch `2.6.0`
+- Transformers `4.52.4`
+- Flash Attention `2.7.3`
 
 ## Docker Compose
 

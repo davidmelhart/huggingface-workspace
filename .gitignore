@@ -1,0 +1,11 @@
+# Boilerplate
+__pycache__/
+*.pyc
+*.pyo
+*.pyd
+.env
+venv/
+
+# Volumes
+models/*
+output/*

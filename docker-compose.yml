@@ -1,0 +1,29 @@
+services:
+  huggingface-workspace:
+    container_name: huggingface-workspace
+    image: davidmelhart/huggingface-workspace:latest
+    environment:
+      - NVIDIA_VISIBLE_DEVICES=all
+      - NVIDIA_DRIVER_CAPABILITIES=all
+      - HF_HOME=/root/.cache/huggingface
+      - TRANSFORMERS_CACHE=/models
+    volumes:
+      - ./data:/data
+      - ./output:/output
+      - ./models:/models
+      - ./scripts:/scripts
+    ports:
+      - "5000:5000"
+    pull_policy: missing
+    stdin_open: true
+    tty: true
+    ipc: host
+    restart: unless-stopped
+    runtime: nvidia
+    deploy:
+      resources:
+        reservations:
+          devices:
+            - driver: nvidia
+              count: all
+              capabilities: [gpu]

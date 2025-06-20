@@ -9,3 +9,4 @@ venv/
 # Volumes
 models/*
 output/*
+data/*
